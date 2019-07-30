@@ -69,3 +69,10 @@ Route::get('/products', function () {
 Route::get('/faq', function () {
 	return view('faq');
 });
+
+Route::get('/genres', 'GenresController@index');
+
+Route::get('/movies', 'MoviesController@index');
+Route::get('/movies/actors', 'MoviesController@actorsByMovie');
+Route::get('/movies/create', 'MoviesController@create');
+Route::post('/movies/create', 'MoviesController@store');
