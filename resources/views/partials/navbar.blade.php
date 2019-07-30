@@ -11,6 +11,17 @@
 				<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
 				<li class="nav-item"><a class="nav-link" href="/faq">F.A.Q.</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropNavBar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Movies
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropNavBar">
+						<a class="dropdown-item" href="/movies">All movies</a>
+						<a class="dropdown-item" href="/movies/create">Create a movie</a>
+						<a class="dropdown-item" href="/movies/actors">Actors by movie</a>
+					</div>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/genres">Genres & Movies</a></li>
 			</ul>
 
 			<ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
