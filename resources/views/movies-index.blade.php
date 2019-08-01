@@ -22,6 +22,8 @@
 					@else
 						<b>Género: </b>sin género<br>
 					@endif
+					<a href="{{ route('show', $movie->id) }}" class="btn btn-success">ver detalle de la película</a>
+					{{-- <a href="/movies/{{ $movie->id }}" class="btn btn-success">ver detalle de la película</a> --}}
 				</li>
 			@endforeach
 		</ul>

@@ -12,6 +12,9 @@ class Movie extends Model
 	// Especificamos las columnas que están protegidas
 	protected $guarded = ['id'];
 
+	// Para traer el valor de la fecha como tal
+	protected $dates = ['release_date'];
+
 	public function genre()
 	{
 		return $this->belongsTo(Genre::class);

@@ -74,5 +74,17 @@ Route::get('/genres', 'GenresController@index');
 
 Route::get('/movies', 'MoviesController@index');
 Route::get('/movies/actors', 'MoviesController@actorsByMovie');
-Route::get('/movies/create', 'MoviesController@create');
+Route::get('/movies/create', 'MoviesController@create')->middleware('auth');
 Route::post('/movies/create', 'MoviesController@store');
+Route::get('/movies/{id}', 'MoviesController@show')->name('show');
+Route::delete('/movies/{id}', 'MoviesController@destroy')->name('destroy');
+Route::get('/movies/edit/{id}', 'MoviesController@edit')->name('edit');
+Route::put('/movies/edit/{id}', 'MoviesController@update')->name('update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', function () {
+	return view('profile');
+})->name('profile')->middleware('auth');

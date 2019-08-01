@@ -17,7 +17,9 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropNavBar">
 						<a class="dropdown-item" href="/movies">All movies</a>
-						<a class="dropdown-item" href="/movies/create">Create a movie</a>
+						@auth
+							<a class="dropdown-item" href="/movies/create">Create a movie</a>
+						@endauth
 						<a class="dropdown-item" href="/movies/actors">Actors by movie</a>
 					</div>
 				</li>
@@ -28,19 +30,21 @@
 				@guest
 					<li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
 					<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-				@endguest
-				@auth
+				@else
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropNavBar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<img src="/images/user-default.png" width="40" style="border-radius: 50%; background-color: #ffffff; padding: 5px;">
-							Hola Usuario
+							Hola {{ Auth::user()->name }}
 						</a>
 						<div class="dropdown-menu" aria-labelledby="dropNavBar">
 							<a class="dropdown-item" href="/profile">Mi perfil</a>
-							<a class="dropdown-item" href="/logout">Salir</a>
+							<form action="/logout" method="post">
+								@csrf
+								<button type="submit" class="dropdown-item">Salir</button>
+							</form>
 						</div>
 					</li>
-				@endauth
+				@endguest
 			</ul>
 		</div>
 	</div>
