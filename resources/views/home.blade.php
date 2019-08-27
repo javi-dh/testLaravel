@@ -10,6 +10,7 @@
 @section('cssLink', '/css/bootstrap.min.css')
 
 @section('mainContent')
+
 	<!-- Main-banner -->
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">

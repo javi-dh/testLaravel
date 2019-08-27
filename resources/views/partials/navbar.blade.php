@@ -1,3 +1,8 @@
+@if (session('adminError'))
+	<div class="alert alert-danger">
+		{{ session('adminError') }}
+	</div>
+@endif
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container">
 		<a class="navbar-brand" href="#">The Fucking Website of GOT</a>
@@ -18,7 +23,9 @@
 					<div class="dropdown-menu" aria-labelledby="dropNavBar">
 						<a class="dropdown-item" href="/movies">All movies</a>
 						@auth
+							@if (Auth::user()->isAdmin())
 							<a class="dropdown-item" href="/movies/create">Create a movie</a>
+							@endif
 						@endauth
 						<a class="dropdown-item" href="/movies/actors">Actors by movie</a>
 					</div>

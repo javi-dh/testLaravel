@@ -16,7 +16,7 @@
 
 Route::get('/', function () {
 	return view('home');
-});
+})->name('home');
 
 Route::get('/products', function () {
 	$productsList = [
@@ -74,7 +74,7 @@ Route::get('/genres', 'GenresController@index');
 
 Route::get('/movies', 'MoviesController@index');
 Route::get('/movies/actors', 'MoviesController@actorsByMovie');
-Route::get('/movies/create', 'MoviesController@create')->middleware('auth');
+Route::get('/movies/create', 'MoviesController@create')->middleware('auth', 'isAdmin');
 Route::post('/movies/create', 'MoviesController@store');
 Route::get('/movies/{id}', 'MoviesController@show')->name('show');
 Route::delete('/movies/{id}', 'MoviesController@destroy')->name('destroy');
