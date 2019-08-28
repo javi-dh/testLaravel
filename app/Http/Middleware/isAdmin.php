@@ -18,7 +18,7 @@ class isAdmin
     public function handle($request, Closure $next)
     {
         $user = \Auth::user();
-        if ($user->is_admin != 1) {
+        if (!$user->isAdmin()) {
             return redirect()->back()->with('adminError', 'No tenés privilegios de admnistrador');
         }
         return $next($request);
